@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOUAM MAXIME - Développeur Full-Stack</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-text">KM</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Particles Background -->
+    <div class="particles"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">KOUAM MAXIME</div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#experience">Expérience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button class="lang-btn" id="lang-toggle">
+                    <i class="fas fa-globe"></i>
+                    <span>FR</span>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="grid-background"></div>
+        <div class="hero-container">
+            <div class="hero-text">
+                <div class="glitch-text">Développeur Full-Stack</div>
+                <h1 class="hero-title">
+                    Bonjour, je suis<br><span class="highlight">KOUAM MAXIME</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Développeur Full-Stack passionné, spécialisé en Laravel, PHP et technologies web modernes. 
+                    Je transforme vos idées en expériences digitales innovantes et performantes.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Découvrir mes projets
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i>
+                        Me contacter
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-window">
+                    <div class="window-dots">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="code-content">
+                        <div class="code-line">
+                            <span class="line-number">01</span>
+                            <span><span class="keyword">class</span> <span class="function">Developer</span> {</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="line-number">02</span>
+                            <span>&nbsp;&nbsp;name: <span class="string">"KOUAM MAXIME"</span>,</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="line-number">03</span>
+                            <span>&nbsp;&nbsp;skills: [<span class="string">"PHP"</span>, <span class="string">"Laravel"</span>, <span class="string">"Vue.js"</span>],</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="line-number">04</span>
+                            <span>&nbsp;&nbsp;passion: <span class="string">"Innovation & Excellence"</span></span>
+                        </div>
+                        <div class="code-line">
+                            <span class="line-number">05</span>
+                            <span>}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Expertise</div>
+                <h2 class="section-title">Compétences <span class="highlight">Techniques</span></h2>
+                <p class="section-subtitle">Technologies et outils que je maîtrise pour créer des solutions web performantes et évolutives</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                    <h3>Frontend Development</h3>
+                    <div class="skill-tags">
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Vue.js</span>
+                        <span class="tag">Bootstrap</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-code"></i></div>
+                    <h3>Backend Development</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Laravel</span>
+                        <span class="tag">PHP</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">RESTful APIs</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <h3>Database & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="tag">MySQL</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">MongoDB</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-tools"></i></div>
+                    <h3>Other Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Git</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Linux</span>
+                        <span class="tag">Agile/Scrum</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Portfolio</div>
+                <h2 class="section-title">Projets <span class="highlight">Réalisés</span></h2>
+                <p class="section-subtitle">Une sélection de mes travaux récents qui démontrent mon expertise en développement web</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1620287341056-49a2f1ab2fdc?w=600&auto=format&fit=crop&q=80" alt="Proges Market">
+                        <div class="project-overlay">
+                            <a href="https://www.progesmarket.com" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Proges Market</h3>
+                        <p>Plateforme e-commerce complète avec gestion avancée des produits et intégration de paiement sécurisé</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <a href="https://www.progesmarket.com" target="_blank" class="btn btn-outline btn-sm">
+                            <i class="fas fa-external-link-alt"></i> Voir le projet
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1641790016790-87f04a7fc9b4?w=600&auto=format&fit=crop&q=80" alt="Nyama By le-Bantou">
+                        <div class="project-overlay">
+                            <a href="https://www.nyamabylebantou.com" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Nyama By le-Bantou</h3>
+                        <p>Système de gestion de restaurant avec commande en ligne et suivi de livraison en temps réel</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Stripe</span>
+                        </div>
+                        <a href="https://www.nyamabylebantou.com" target="_blank" class="btn btn-outline btn-sm">
+                            <i class="fas fa-external-link-alt"></i> Voir le projet
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1642052503083-9b9f61e75710?w=600&auto=format&fit=crop&q=80" alt="Gonago">
+                        <div class="project-overlay">
+                            <a href="https://www.go-na-go.com" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Gonago</h3>
+                        <p>Plateforme de réservation de voyages avec disponibilité en temps réel et gestion des réservations</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Ajax</span>
+                        </div>
+                        <a href="https://www.go-na-go.com" target="_blank" class="btn btn-outline btn-sm">
+                            <i class="fas fa-external-link-alt"></i> Voir le projet
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1694599048261-a1de00f0117e?w=600&auto=format&fit=crop&q=80" alt="Bantou Swag">
+                        <div class="project-overlay">
+                            <a href="https://www.bantou-swag.com" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Bantou Swag</h3>
+                        <p>Site e-commerce de mode avec configurateur de produits personnalisé et gestion d'inventaire</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">PayPal</span>
+                        </div>
+                        <a href="https://www.bantou-swag.com" target="_blank" class="btn btn-outline btn-sm">
+                            <i class="fas fa-external-link-alt"></i> Voir le projet
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Parcours</div>
+                <h2 class="section-title">Expérience <span class="highlight">Professionnelle</span></h2>
+                <p class="section-subtitle">Mon parcours et mes réalisations dans le développement web</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Années d'expérience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Projets réalisés</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Clients satisfaits</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Technologies maîtrisées</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Contact</div>
+                <h2 class="section-title">Travaillons <span class="highlight">Ensemble</span></h2>
+                <p class="section-subtitle">Prêt à donner vie à vos idées</p>
+                <p class="contact-description">
+                    Je suis toujours intéressé par de nouvelles opportunités et projets excitants. 
+                    Discutons de la façon dont nous pouvons collaborer pour créer quelque chose d'exceptionnel.
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p><a href="mailto:kouammaxime237@gmail.com">kouammaxime237@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-globe"></i></div>
+                        <div class="contact-details">
+                            <h3>Website</h3>
+                            <p>www.yourwebsite.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+                        <div class="contact-details">
+                            <h3>LinkedIn</h3>
+                            <p>linkedin.com/in/yourprofile</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-cta">
+                    <a href="mailto:kouammaxime237@gmail.com" class="btn btn-primary btn-lg">
+                        <i class="fas fa-paper-plane"></i>
+                        Démarrer une conversation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">KOUAM MAXIME</div>
+                <div class="footer-text">
+                    <p>© 2024 KOUAM MAXIME. Tous droits réservés.</p>
+                    <p class="footer-built">Développé avec passion et excellence</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script src="script.js"></script>
+</body>
+</html>
