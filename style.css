@@ -126,28 +126,46 @@ button {
 }
 
 .nav-logo {
-  font-family: "Outfit", sans-serif;
-  font-size: 1.8rem;
-  font-weight: 800;
-  letter-spacing: -1px;
-  color: var(--text);
-  position: relative;
-  transition: all 0.3s;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--text);
+    position: relative;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-logo-img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--secondary);
+    transition: all 0.3s;
+    display: none;
+}
+
+.nav-logo:hover .nav-logo-img {
+    transform: scale(1.1);
+    border-color: var(--primary);
 }
 
 .nav-logo::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background: var(--secondary);
-  transition: width 0.3s var(--transition);
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--secondary);
+    transition: width 0.3s var(--transition);
 }
 
 .nav-logo:hover::after {
-  width: 100%;
+    width: 100%;
 }
 
 .nav-menu {
@@ -1293,6 +1311,19 @@ section {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
+
+
+  .nav-logo-img {
+        display: block;
+    }
+    
+    .nav-logo-text {
+        display: none;
+    }
+    
+    .nav-logo::after {
+        display: none;
+    }
 }
 
 @media (max-width: 480px) {
