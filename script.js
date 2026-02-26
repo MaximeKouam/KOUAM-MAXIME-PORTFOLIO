@@ -197,14 +197,14 @@
       role: "Développeur Web Junior",
       company: "PROGES SARL",
       period: "2022 — 2023",
-      desc: "Participer a l'analyse et le  developpement des applications web de l'entreprise ainsi que le developpement des site et applications web sur mesure pour des clients",
+      desc: "Participation à l’analyse fonctionnelle et technique des besoins internes et clients. Participation a la Conception et au développement d’applications web sur mesure, en respectant les standards de qualité, de performance et de sécurité. Collaboration avec l’équipe technique pour l’intégration des interfaces utilisateurs et l’optimisation des bases de données.",
       techs: ["Laravel", "Bootstrap 5", "MySQL","AJAX", "JQuery"],
     },
     {
       role: "Développeur Web Intermediare",
       company: "LE-BANTOU SARL",
       period: "2024 — 2026",
-      desc: "Analyser et developper et maintenir des solutions digitaux pour l'entreprise, Diriger une équipe de developpeur",
+      desc: "Analyse, conception et développement de solutions digitales adaptées aux besoins stratégiques de l’entreprise.Maintenance évolutive et corrective des applications existantes afin d’assurer leur performance et leur stabilité. Encadrement et coordination d’une équipe de développeurs, avec répartition des tâches, suivi des livrables et respect des délais Participation aux décisions techniques et à l’architecture des projets.",
       techs: [
         "Laravel",
         "PHP",
@@ -317,7 +317,7 @@
     });
     var col = document.createElement("div");
     col.className = "reveal";
-    col.style.transitionDelay = ci * 1 + "s";
+    col.style.transitionDelay = ci * 0.1 + "s";
     var html =
       '<div class="skill-category-header"><div class="skill-bar-accent"></div><span class="skill-category-name">' +
       cat +
