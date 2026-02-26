@@ -1,50 +1,80 @@
 <!doctype html>
 <html lang="fr">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO Meta Tags -->
     <title>KOUAM MAXIME | Développeur Full-Stack | Laravel</title>
-    <meta name="description" content="KOUAM MAXIME - Développeur Full-Stack spécialisé en Laravel, PHP et technologies web modernes. Découvrez mes projets et compétences."/>
+    <meta name="description"
+        content="KOUAM MAXIME - Développeur Full-Stack spécialisé en Laravel, PHP et technologies web modernes. Découvrez mes projets et compétences." />
     <meta name="keywords" content="KOUAM MAXIME, développeur web, Laravel, PHP, Vue.js, MySQL, e-commerce, portfolio" />
     <meta name="author" content="KOUAM MAXIME" />
 
     <meta property="og:title" content="KOUAM MAXIME|Développeur Full-Stack | Laravel" />
-    <meta property="og:description" content="KOUAM MAXIME - Développeur Full-Stack spécialisé en Laravel, PHP et technologies web modernes. Découvrez mes projets et compétences." />
+    <meta property="og:description"
+        content="KOUAM MAXIME - Développeur Full-Stack spécialisé en Laravel, PHP et technologies web modernes. Découvrez mes projets et compétences." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://kouam-maxime-portfolio.onrender.com/images/og-image.jpg" />
     <meta property="og:url" content="https://kouam-maxime-portfolio.onrender.com" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+</head>
+
+<body onload="initViewCounter()">
 
     <div class="bg-gradients"></div>
     <div id="toast">✅ Message envoyé avec succès ! Je vous répondrai sous peu.</div>
 
     <!-- MOBILE MENU -->
-    <div id="mobile-menu">
-        <a href="#hero" onclick="closeMobile()">Accueil</a>
-        <a href="#projects" onclick="closeMobile()">Projets</a>
-        <a href="#skills" onclick="closeMobile()">Compétences</a>
-        <a href="#experience" onclick="closeMobile()">Expérience</a>
-        <a href="#contact" onclick="closeMobile()">Contact</a>
-        <a href="#contact" onclick="closeMobile()" class="mobile-cta">Discutons de votre projet</a>
+    <div id="mobile-menu" role="dialog" aria-label="Menu navigation">
+        <div class="mobile-menu-header">
+            <a href="#hero" class="nav-logo" onclick="closeMobile()">
+                <div class="nav-logo-icon">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <polyline points="4 17 10 11 4 5" />
+                        <line x1="12" y1="19" x2="20" y2="19" />
+                    </svg>
+                </div>
+                <span class="nav-logo-text">Kouam<span>.</span>Maxime</span>
+            </a>
+            <button class="mobile-close" onclick="closeMobile()" aria-label="Fermer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="#hero" onclick="closeMobile()"><span>01</span>Accueil</a>
+            <a href="#projects" onclick="closeMobile()"><span>02</span>Projets</a>
+            <a href="#skills" onclick="closeMobile()"><span>03</span>Compétences</a>
+            <a href="#experience" onclick="closeMobile()"><span>04</span>Expérience</a>
+            <a href="#contact" onclick="closeMobile()"><span>05</span>Contact</a>
+        </nav>
+        <div class="mobile-footer">
+            <a href="files/KOUAM MAXIME CV fr.pdf (3).pdf" download class="mobile-cv-btn" onclick="closeMobile()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Télécharger CV
+            </a>
+            <a href="#contact" onclick="closeMobile()" class="mobile-cta">Démarrer un projet →</a>
+        </div>
     </div>
 
     <!-- HEADER -->
     <header id="header">
         <nav class="container nav-inner">
+            <!-- LOGO -->
             <a href="#hero" class="nav-logo">
                 <div class="nav-logo-icon">
                     <svg class="icon" viewBox="0 0 24 24">
@@ -54,6 +84,8 @@
                 </div>
                 <span class="nav-logo-text">Kouam<span>.</span>Maxime</span>
             </a>
+
+            <!-- LINKS -->
             <ul class="nav-links">
                 <li><a href="#hero">Accueil</a></li>
                 <li><a href="#projects">Projets</a></li>
@@ -61,21 +93,42 @@
                 <li><a href="#experience">Expérience</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="#contact" class="nav-cta" id="navCta">Discutons de votre projet</a>
-            <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menu">
-                <svg id="hIcon" class="icon icon-lg" viewBox="0 0 24 24">
-                    <line x1="3" y1="6" x2="21" y2="6" />
-                    <line x1="3" y1="12" x2="21" y2="12" />
-                    <line x1="3" y1="18" x2="21" y2="18" />
-                </svg>
-                <svg id="xIcon" class="icon icon-lg" style="display:none" viewBox="0 0 24 24">
-                    <line x1="18" y1="6" x2="6" y2="18" />
-                    <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-            </button>
+
+            <!-- ACTIONS -->
+            <div class="nav-actions">
+                <a href="files/KOUAM MAXIME CV fr.pdf (3).pdf" download class="nav-cv" title="Télécharger mon CV">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    <span>CV</span>
+                </a>
+                <a href="#contact" class="nav-cta" id="navCta">Discutons</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        width="17" height="17">
+                        <circle cx="12" cy="12" r="5" />
+                        <line x1="12" y1="1" x2="12" y2="3" />
+                        <line x1="12" y1="21" x2="12" y2="23" />
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                        <line x1="1" y1="12" x2="3" y2="12" />
+                        <line x1="21" y1="12" x2="23" y2="12" />
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        width="17" height="17" style="display:none">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+                <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </nav>
     </header>
-
     <!-- HERO -->
     <section id="hero">
         <div class="hero-bg">
@@ -84,6 +137,13 @@
         <div class="container">
             <div class="hero-content">
                 <div class="badge badge-animated" style="margin-bottom:1.5rem">Développeur Fullstack Laravel</div>
+                <div class="views-badge" id="views-badge" style="display:none">
+                    <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                        <circle cx="12" cy="12" r="3" />
+                    </svg>
+                    <span id="views-count">—</span> vues
+                </div>
                 <h1 class="hero-title">KOUAM <span class="highlight">MAXIME</span></h1>
                 <p class="hero-subtitle">Artisan du code spécialisé dans la création d'écosystèmes digitaux robustes,
                     scalables et centrés sur l'expérience utilisateur.</p>
@@ -98,6 +158,15 @@
                         Voir mes projets
                     </a>
                     <a href="#contact" class="btn btn-outline">Me contacter</a>
+                    <!-- <a href="files/cv-kouam-maxime.pdf" download class="btn-cv">
+                        <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                        Télécharger CV
+                    </a> -->
                 </div>
             </div>
         </div>
@@ -111,8 +180,7 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-img-wrap reveal">
-                    <img src="images/max_2.jpg" alt="Workspace"
-                        class="about-img" />
+                    <img src="images/max_2.jpg" alt="Workspace" class="about-img" />
                     <div class="about-badge">
                         <div class="about-badge-icon">
                             <svg class="icon" viewBox="0 0 24 24" fill="none">
@@ -256,8 +324,8 @@
                                 <polyline points="9 18 15 12 9 6" />
                             </svg>
                         </a>
-                        <a href="https://www.linkedin.com/in/maxime-kouam-5a70a63a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener"
-                            class="contact-social-link li">
+                        <a href="https://www.linkedin.com/in/maxime-kouam-5a70a63a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                            target="_blank" rel="noopener" class="contact-social-link li">
                             <div class="csicon li"><svg class="icon" viewBox="0 0 24 24">
                                     <path
                                         d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -343,12 +411,34 @@
 
     <!-- CTA -->
     <div class="cta-section">
-        <div class="container">
-            <p class="cta-label">Prêt à innover ?</p>
-            <p class="cta-text">© <span id="year"></span> KOUAM MAXIME. Créé avec Laravel &amp; Passion.</p>
+        <div class="container cta-inner">
+            <div class="cta-content">
+                <span class="cta-label">Disponible pour de nouvelles opportunités</span>
+                <h2 class="cta-heading">Vous avez un projet en tête ?</h2>
+                <p class="cta-sub">Je transforme vos idées en produits numériques robustes et scalables. Discutons
+                    ensemble de votre vision.</p>
+                <div class="cta-actions">
+                    <a href="#contact" class="btn btn-primary">
+                        <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                        </svg>
+                        Démarrer un projet
+                    </a>
+                    <a href="files/KOUAM MAXIME CV fr.pdf (3).pdf" download class="btn btn-outline">
+                        <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                        Télécharger mon CV
+                    </a>
+                </div>
+            </div>
+            <p class="cta-copy">© <span id="year"></span> KOUAM MAXIME — Yaoundé, Cameroun / Remote</p>
         </div>
     </div>
-
     <!-- TECH MARQUEE -->
     <div class="tech-marquee-wrap">
         <div class="tech-marquee-inner" id="tech-marquee"></div>
@@ -371,15 +461,16 @@
                                 <path
                                     d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                             </svg></a>
-                        <a href="https://www.linkedin.com/in/maxime-kouam-5a70a63a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener"
-                            class="footer-social-btn"><svg class="icon icon-sm" viewBox="0 0 24 24">
+                        <a href="https://www.linkedin.com/in/maxime-kouam-5a70a63a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                            target="_blank" rel="noopener" class="footer-social-btn"><svg class="icon icon-sm"
+                                viewBox="0 0 24 24">
                                 <path
                                     d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                                 <rect x="2" y="9" width="4" height="12" />
                                 <circle cx="4" cy="4" r="2" />
                             </svg></a>
-                        <a href="mailto:maximekouam1415@gmail.com" target="_blank" class="footer-social-btn"><svg class="icon icon-sm"
-                                viewBox="0 0 24 24">
+                        <a href="mailto:maximekouam1415@gmail.com" target="_blank" class="footer-social-btn"><svg
+                                class="icon icon-sm" viewBox="0 0 24 24">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                                 <polyline points="22,6 12,13 2,6" />
                             </svg></a>

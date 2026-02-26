@@ -499,18 +499,19 @@
   });
 
   // ── MOBILE MENU ───────────────────────────────────
-  window.toggleMobile = function () {
-    var m = document.getElementById("mobile-menu");
-    var open = m.classList.toggle("open");
-    document.getElementById("hIcon").style.display = open ? "none" : "";
-    document.getElementById("xIcon").style.display = open ? "" : "none";
-  };
-  window.closeMobile = function () {
-    document.getElementById("mobile-menu").classList.remove("open");
-    document.getElementById("hIcon").style.display = "";
-    document.getElementById("xIcon").style.display = "none";
-  };
-
+// Remplacez/complétez vos fonctions toggleMobile et closeMobile
+function toggleMobile() {
+  const menu = document.getElementById('mobile-menu');
+  const btn  = document.getElementById('hamburger');
+  const isOpen = menu.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+function closeMobile() {
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow = '';
+}
   // ── RESPONSIVE NAV ────────────────────────────────
   function handleResize() {
     var links = document.querySelector(".nav-links");
@@ -572,3 +573,41 @@
 const yearElement = document.getElementById("year");
 
 yearElement.textContent = new Date().getFullYear();
+
+function initViewCounter() {
+  const API = 'https://counterapi.dev/api/kouam-maxime-portfolio/views/hit';
+
+  fetch(API)
+    .then(r => r.json())
+    .then(data => {
+      const value = data?.count ?? data?.value ?? null;
+      if (value !== null) {
+        document.getElementById('views-count').textContent = Number(value).toLocaleString('fr-FR');
+        document.getElementById('views-badge').style.display = 'inline-flex';
+      }
+    })
+    .catch(() => {});
+}
+// https://counterapi.dev/api/kouam-maxime-portfolio/views/hit
+
+// ---- DARK MODE ----
+const themeToggle = document.getElementById('themeToggle');
+const iconSun  = themeToggle.querySelector('.icon-sun');
+const iconMoon = themeToggle.querySelector('.icon-moon');
+
+function applyTheme(dark) {
+  document.body.classList.toggle('darkmode', dark);
+  iconSun.style.display  = dark ? 'none'  : 'block';
+  iconMoon.style.display = dark ? 'block' : 'none';
+}
+
+// Préférence système ou sauvegardée
+const saved = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+applyTheme(saved === 'dark' || (!saved && prefersDark));
+
+themeToggle.addEventListener('click', () => {
+  const isDark = !document.body.classList.contains('darkmode');
+  applyTheme(isDark);
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
