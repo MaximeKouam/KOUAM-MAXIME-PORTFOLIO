@@ -534,21 +534,24 @@
   window.addEventListener("resize", handleResize);
   handleResize();
 
-  // ── CONTACT FORM ──────────────────────────────────
+  // ── CONTACT FORM → WhatsApp ──────────────────────────
   document
     .getElementById("contact-form")
     .addEventListener("submit", function (e) {
       e.preventDefault();
+
       var name = document.getElementById("fname").value.trim();
       var email = document.getElementById("femail").value.trim();
       var subject = document.getElementById("fsubject").value.trim();
       var message = document.getElementById("fmessage").value.trim();
       var ok = true;
+
       function setErr(id, msg) {
         var el = document.getElementById(id);
         el.textContent = msg;
         if (msg) ok = false;
       }
+
       setErr(
         "name-err",
         name.length < 2 ? "Le nom est requis (min. 2 caractères)" : "",
@@ -565,13 +568,36 @@
         "message-err",
         message.length < 10 ? "Message trop court (min. 10 caractères)" : "",
       );
+
       if (!ok) return;
+
+      // Construction du message WhatsApp professionnel
+      var wa_message =
+        `Bonjour Maxime,\n\n` +
+        `Je vous contacte via votre portfolio.\n\n` +
+        `👤 *Nom :* ${name}\n` +
+        `📧 *Email :* ${email}\n` +
+        `📌 *Sujet :* ${subject}\n\n` +
+        `💬 *Message :*\n${message}\n\n` +
+        `---\n` +
+        `_Message envoyé depuis kouam-maxime-portfolio_`;
+
+      var encoded = encodeURIComponent(wa_message);
+      var waUrl = `https://wa.me/237695457968?text=${encoded}`;
+
+      // Reset + toast + redirection
       e.target.reset();
+
       var toast = document.getElementById("toast");
       toast.classList.add("show");
       setTimeout(function () {
         toast.classList.remove("show");
       }, 4000);
+
+      // Ouvre WhatsApp après un court délai (laisse le toast s'afficher)
+      setTimeout(function () {
+        window.open(waUrl, "_blank");
+      }, 800);
     });
 })();
 
@@ -619,39 +645,56 @@ themeToggle.addEventListener("click", () => {
   localStorage.setItem("theme", isDark ? "dark" : "light");
 });
 
-
 // ---- CODE TYPING ANIMATION ----
 const codeLines = [
-  { text: '<span style="color:#ff7b72">class</span> <span style="color:#79c0ff">KouamMaxime</span> <span style="color:#ff7b72">extends</span> <span style="color:#79c0ff">Developer</span>' },
-  { text: '{' },
-  { text: '' },
-  { text: '  <span style="color:#8b949e">// Développeur Full-Stack · Yaoundé, Cameroun</span>' },
-  { text: '' },
-  { text: '  <span style="color:#ff7b72">protected</span> <span style="color:#ff7b72">array</span> <span style="color:#ffa657">$stack</span> = [' },
-  { text: `    <span style="color:#a5d6ff">'Laravel'</span>, <span style="color:#a5d6ff">'PHP'</span>, <span style="color:#a5d6ff">'Vue.js'</span>,` },
-  { text: `    <span style="color:#a5d6ff">'MySQL'</span>, <span style="color:#a5d6ff">'REST API'</span>,` },
-  { text: '  ];' },
-  { text: '' },
-  { text: '  <span style="color:#ff7b72">public function</span> <span style="color:#d2a8ff">getExperience</span>(): <span style="color:#79c0ff">string</span>' },
-  { text: '  {' },
-  { text: '    <span style="color:#ff7b72">return</span> <span style="color:#a5d6ff">\'3+ ans · 15+ projets livrés\'</span>;' },
-  { text: '  }' },
-  { text: '' },
-  { text: '  <span style="color:#ff7b72">public function</span> <span style="color:#d2a8ff">isAvailable</span>(): <span style="color:#79c0ff">bool</span>' },
-  { text: '  {' },
-  { text: '    <span style="color:#ff7b72">return</span> <span style="color:#79c0ff">true</span>; <span style="color:#8b949e">// Open to work 🚀</span>' },
-  { text: '  }' },
-  { text: '' },
-  { text: '}' },
+  {
+    text: '<span style="color:#ff7b72">class</span> <span style="color:#79c0ff">KouamMaxime</span> <span style="color:#ff7b72">extends</span> <span style="color:#79c0ff">Developer</span>',
+  },
+  { text: "{" },
+  { text: "" },
+  {
+    text: '  <span style="color:#8b949e">// Développeur Full-Stack · Yaoundé, Cameroun</span>',
+  },
+  { text: "" },
+  {
+    text: '  <span style="color:#ff7b72">protected</span> <span style="color:#ff7b72">array</span> <span style="color:#ffa657">$stack</span> = [',
+  },
+  {
+    text: `    <span style="color:#a5d6ff">'Laravel'</span>, <span style="color:#a5d6ff">'PHP'</span>, <span style="color:#a5d6ff">'Vue.js'</span>,`,
+  },
+  {
+    text: `    <span style="color:#a5d6ff">'MySQL'</span>, <span style="color:#a5d6ff">'REST API'</span>,`,
+  },
+  { text: "  ];" },
+  { text: "" },
+  {
+    text: '  <span style="color:#ff7b72">public function</span> <span style="color:#d2a8ff">getExperience</span>(): <span style="color:#79c0ff">string</span>',
+  },
+  { text: "  {" },
+  {
+    text: '    <span style="color:#ff7b72">return</span> <span style="color:#a5d6ff">\'3+ ans · 15+ projets livrés\'</span>;',
+  },
+  { text: "  }" },
+  { text: "" },
+  {
+    text: '  <span style="color:#ff7b72">public function</span> <span style="color:#d2a8ff">isAvailable</span>(): <span style="color:#79c0ff">bool</span>',
+  },
+  { text: "  {" },
+  {
+    text: '    <span style="color:#ff7b72">return</span> <span style="color:#79c0ff">true</span>; <span style="color:#8b949e">// Open to work 🚀</span>',
+  },
+  { text: "  }" },
+  { text: "" },
+  { text: "}" },
 ];
 function initCodeTyping() {
-  const pre = document.getElementById('codeBlock');
+  const pre = document.getElementById("codeBlock");
   if (!pre) return;
 
   let lineIndex = 0;
   let charIndex = 0;
   let displayedLines = [];
-  const plain = (html) => html.replace(/<[^>]+>/g, '');
+  const plain = (html) => html.replace(/<[^>]+>/g, "");
 
   function typeLine() {
     if (lineIndex >= codeLines.length) {
@@ -660,7 +703,7 @@ function initCodeTyping() {
         displayedLines = [];
         lineIndex = 0;
         charIndex = 0;
-        pre.innerHTML = '';
+        pre.innerHTML = "";
         setTimeout(typeLine, 600);
       }, 3500);
       return;
@@ -673,29 +716,39 @@ function initCodeTyping() {
       // Reconstitue le HTML avec le bon nombre de caractères visibles
       const visibleChars = charIndex;
       let count = 0;
-      let result = '';
+      let result = "";
       let inTag = false;
-      let tagBuf = '';
+      let tagBuf = "";
 
       for (let i = 0; i < line.text.length; i++) {
         const ch = line.text[i];
-        if (ch === '<') { inTag = true; tagBuf = '<'; continue; }
-        if (inTag) {
-          tagBuf += ch;
-          if (ch === '>') { inTag = false; result += tagBuf; tagBuf = ''; }
+        if (ch === "<") {
+          inTag = true;
+          tagBuf = "<";
           continue;
         }
-        if (count < visibleChars) { result += ch; count++; }
-        else break;
+        if (inTag) {
+          tagBuf += ch;
+          if (ch === ">") {
+            inTag = false;
+            result += tagBuf;
+            tagBuf = "";
+          }
+          continue;
+        }
+        if (count < visibleChars) {
+          result += ch;
+          count++;
+        } else break;
       }
 
       displayedLines[lineIndex] = result;
-      pre.innerHTML = displayedLines.join('\n');
+      pre.innerHTML = displayedLines.join("\n");
       charIndex++;
       setTimeout(typeLine, charIndex === 1 ? 80 : 22);
     } else {
       displayedLines[lineIndex] = line.text;
-      pre.innerHTML = displayedLines.join('\n');
+      pre.innerHTML = displayedLines.join("\n");
       lineIndex++;
       charIndex = 0;
       setTimeout(typeLine, 60);
