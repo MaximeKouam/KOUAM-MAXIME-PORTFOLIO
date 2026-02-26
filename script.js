@@ -132,7 +132,15 @@
       id: "proges-market-002",
       title: "PROGES MARKET",
       desc: "Plateforme e-commerce complète avec gestion avancée des produits et intégration de paiement sécurisé",
-      tags: ["Laravel", "HTML5", "CSS3", "JavaScript", "Bootstrap 5", "MySQL", "JQuery"],
+      tags: [
+        "Laravel",
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Bootstrap 5",
+        "MySQL",
+        "JQuery",
+      ],
       role: "Développeur Junior",
       main: true,
       link: "https://www.progesmarket.com",
@@ -158,7 +166,7 @@
       link: "https://www.le-bantou.com",
       img: "images/b-sarl.webp",
     },
-        {
+    {
       id: "bantou-invest-007",
       title: "Bantou Investment",
       desc: "Site vitrine de Bantou Investment, une plateforme présentant les services d’investissement et de conseil financier du groupe.",
@@ -179,7 +187,7 @@
       link: "https://www.bantou-swag.com",
       img: "images/b-swag.webp",
     },
-        {
+    {
       id: "le-bantou-roup-005",
       title: "Bantou Group",
       desc: "Site web corporate de Le Bantou Group, incluant l’intégration front-end, SEO optimisé, l’optimisation de l’interface utilisateur et la mise en ligne de la plateforme.",
@@ -189,7 +197,6 @@
       link: "https://le-bantou-group.com/",
       img: "images/b-group.webp",
     },
-
   ];
 
   var experiences = [
@@ -198,7 +205,7 @@
       company: "PROGES SARL",
       period: "2022 — 2023",
       desc: "Participation à l’analyse fonctionnelle et technique des besoins internes et clients. Participation a la Conception et au développement d’applications web sur mesure, en respectant les standards de qualité, de performance et de sécurité. Collaboration avec l’équipe technique pour l’intégration des interfaces utilisateurs et l’optimisation des bases de données.",
-      techs: ["Laravel", "Bootstrap 5", "MySQL","AJAX", "JQuery"],
+      techs: ["Laravel", "Bootstrap 5", "MySQL", "AJAX", "JQuery"],
     },
     {
       role: "Développeur Web Intermediare",
@@ -499,20 +506,19 @@
   });
 
   // ── MOBILE MENU ───────────────────────────────────
-// Remplacez/complétez vos fonctions toggleMobile et closeMobile
-function toggleMobile() {
-  const menu = document.getElementById('mobile-menu');
-  const btn  = document.getElementById('hamburger');
-  const isOpen = menu.classList.toggle('open');
-  btn.classList.toggle('open', isOpen);
-  document.body.style.overflow = isOpen ? 'hidden' : '';
-}
-function closeMobile() {
-  document.getElementById('mobile-menu').classList.remove('open');
-  document.getElementById('hamburger').classList.remove('open');
-  document.body.style.overflow = '';
-}
-  // ── RESPONSIVE NAV ────────────────────────────────
+  window.toggleMobile = function () {
+    const menu = document.getElementById("mobile-menu");
+    const btn = document.getElementById("hamburger");
+    const isOpen = menu.classList.toggle("open");
+    btn.classList.toggle("open", isOpen);
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  };
+
+  window.closeMobile = function () {
+    document.getElementById("mobile-menu").classList.remove("open");
+    document.getElementById("hamburger").classList.remove("open");
+    document.body.style.overflow = "";
+  }; // ── RESPONSIVE NAV ────────────────────────────────
   function handleResize() {
     var links = document.querySelector(".nav-links");
     var cta = document.getElementById("navCta");
@@ -575,15 +581,16 @@ const yearElement = document.getElementById("year");
 yearElement.textContent = new Date().getFullYear();
 
 function initViewCounter() {
-  const API = 'https://counterapi.dev/api/kouam-maxime-portfolio/views/hit';
+  const API = "https://counterapi.dev/api/kouam-maxime-portfolio/views/hit";
 
   fetch(API)
-    .then(r => r.json())
-    .then(data => {
+    .then((r) => r.json())
+    .then((data) => {
       const value = data?.count ?? data?.value ?? null;
       if (value !== null) {
-        document.getElementById('views-count').textContent = Number(value).toLocaleString('fr-FR');
-        document.getElementById('views-badge').style.display = 'inline-flex';
+        document.getElementById("views-count").textContent =
+          Number(value).toLocaleString("fr-FR");
+        document.getElementById("views-badge").style.display = "inline-flex";
       }
     })
     .catch(() => {});
@@ -591,23 +598,23 @@ function initViewCounter() {
 // https://counterapi.dev/api/kouam-maxime-portfolio/views/hit
 
 // ---- DARK MODE ----
-const themeToggle = document.getElementById('themeToggle');
-const iconSun  = themeToggle.querySelector('.icon-sun');
-const iconMoon = themeToggle.querySelector('.icon-moon');
+const themeToggle = document.getElementById("themeToggle");
+const iconSun = themeToggle.querySelector(".icon-sun");
+const iconMoon = themeToggle.querySelector(".icon-moon");
 
 function applyTheme(dark) {
-  document.body.classList.toggle('darkmode', dark);
-  iconSun.style.display  = dark ? 'none'  : 'block';
-  iconMoon.style.display = dark ? 'block' : 'none';
+  document.body.classList.toggle("darkmode", dark);
+  iconSun.style.display = dark ? "none" : "block";
+  iconMoon.style.display = dark ? "block" : "none";
 }
 
 // Préférence système ou sauvegardée
-const saved = localStorage.getItem('theme');
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-applyTheme(saved === 'dark' || (!saved && prefersDark));
+const saved = localStorage.getItem("theme");
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+applyTheme(saved === "dark" || (!saved && prefersDark));
 
-themeToggle.addEventListener('click', () => {
-  const isDark = !document.body.classList.contains('darkmode');
+themeToggle.addEventListener("click", () => {
+  const isDark = !document.body.classList.contains("darkmode");
   applyTheme(isDark);
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  localStorage.setItem("theme", isDark ? "dark" : "light");
 });
