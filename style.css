@@ -1917,14 +1917,6 @@ body:not(.darkmode) .code-titlebar {
   border-top: 1px solid rgba(59, 91, 219, 0.15);
   text-align: center;
 }
-.cta-label {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-  color: var(--muted-foreground);
-}
 .cta-text {
   font-size: 1.15rem;
   font-weight: 700;
@@ -1981,6 +1973,25 @@ body:not(.darkmode) .code-titlebar {
   font-size: 0.58rem;
   font-weight: 600;
   color: var(--muted-foreground);
+}
+
+/* ---- MARQUEE — plus compact sur mobile ---- */
+@media (max-width: 640px) {
+  .tech-marquee-wrap {
+    padding: 1rem 0;
+  }
+  .tech-chip {
+    padding: 0.5rem 0.65rem;
+    min-width: 3.5rem;
+    border-radius: 0.625rem;
+  }
+  .tech-chip img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .tech-chip-name {
+    font-size: 0.5rem;
+  }
 }
 
 /* ======================================
@@ -2186,7 +2197,7 @@ footer {
   display: flex;
   gap: 1rem;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin-bottom: 3rem;
 }
 .cta-copy {
@@ -2207,6 +2218,22 @@ footer {
   border-radius: 999px;
   margin-bottom: 1.25rem;
 }
+
+@media (max-width: 480px) {
+  .cta-actions {
+    gap: 0.5rem;
+  }
+  .cta-actions .btn {
+    padding: 0.7rem 1rem;
+    font-size: 0.8rem;
+    flex: 1;
+    justify-content: center;
+  }
+  .cta-actions .btn .icon {
+    display: none;
+  }
+}
+
 
 /* ---- NAV CV BUTTON ---- */
 .nav-cv {
