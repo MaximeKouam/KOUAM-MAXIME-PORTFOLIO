@@ -618,3 +618,93 @@ themeToggle.addEventListener("click", () => {
   applyTheme(isDark);
   localStorage.setItem("theme", isDark ? "dark" : "light");
 });
+
+
+// ---- CODE TYPING ANIMATION ----
+const codeLines = [
+  { text: '<span style="color:#ff7b72">class</span> <span style="color:#79c0ff">KouamMaxime</span> <span style="color:#ff7b72">extends</span> <span style="color:#79c0ff">Developer</span>' },
+  { text: '{' },
+  { text: '' },
+  { text: '  <span style="color:#8b949e">// Développeur Full-Stack · Yaoundé, Cameroun</span>' },
+  { text: '' },
+  { text: '  <span style="color:#ff7b72">protected</span> <span style="color:#ff7b72">array</span> <span style="color:#ffa657">$stack</span> = [' },
+  { text: `    <span style="color:#a5d6ff">'Laravel'</span>, <span style="color:#a5d6ff">'PHP'</span>, <span style="color:#a5d6ff">'Vue.js'</span>,` },
+  { text: `    <span style="color:#a5d6ff">'MySQL'</span>, <span style="color:#a5d6ff">'REST API'</span>,` },
+  { text: '  ];' },
+  { text: '' },
+  { text: '  <span style="color:#ff7b72">public function</span> <span style="color:#d2a8ff">getExperience</span>(): <span style="color:#79c0ff">string</span>' },
+  { text: '  {' },
+  { text: '    <span style="color:#ff7b72">return</span> <span style="color:#a5d6ff">\'3+ ans · 15+ projets livrés\'</span>;' },
+  { text: '  }' },
+  { text: '' },
+  { text: '  <span style="color:#ff7b72">public function</span> <span style="color:#d2a8ff">isAvailable</span>(): <span style="color:#79c0ff">bool</span>' },
+  { text: '  {' },
+  { text: '    <span style="color:#ff7b72">return</span> <span style="color:#79c0ff">true</span>; <span style="color:#8b949e">// Open to work 🚀</span>' },
+  { text: '  }' },
+  { text: '' },
+  { text: '}' },
+];
+function initCodeTyping() {
+  const pre = document.getElementById('codeBlock');
+  if (!pre) return;
+
+  let lineIndex = 0;
+  let charIndex = 0;
+  let displayedLines = [];
+  const plain = (html) => html.replace(/<[^>]+>/g, '');
+
+  function typeLine() {
+    if (lineIndex >= codeLines.length) {
+      // Pause puis reset
+      setTimeout(() => {
+        displayedLines = [];
+        lineIndex = 0;
+        charIndex = 0;
+        pre.innerHTML = '';
+        setTimeout(typeLine, 600);
+      }, 3500);
+      return;
+    }
+
+    const line = codeLines[lineIndex];
+    const plainText = plain(line.text);
+
+    if (charIndex <= plainText.length) {
+      // Reconstitue le HTML avec le bon nombre de caractères visibles
+      const visibleChars = charIndex;
+      let count = 0;
+      let result = '';
+      let inTag = false;
+      let tagBuf = '';
+
+      for (let i = 0; i < line.text.length; i++) {
+        const ch = line.text[i];
+        if (ch === '<') { inTag = true; tagBuf = '<'; continue; }
+        if (inTag) {
+          tagBuf += ch;
+          if (ch === '>') { inTag = false; result += tagBuf; tagBuf = ''; }
+          continue;
+        }
+        if (count < visibleChars) { result += ch; count++; }
+        else break;
+      }
+
+      displayedLines[lineIndex] = result;
+      pre.innerHTML = displayedLines.join('\n');
+      charIndex++;
+      setTimeout(typeLine, charIndex === 1 ? 80 : 22);
+    } else {
+      displayedLines[lineIndex] = line.text;
+      pre.innerHTML = displayedLines.join('\n');
+      lineIndex++;
+      charIndex = 0;
+      setTimeout(typeLine, 60);
+    }
+  }
+
+  // Démarre après un léger délai
+  setTimeout(typeLine, 800);
+}
+
+// Dans votre DOMContentLoaded, ajoutez :
+initCodeTyping();
