@@ -76,6 +76,19 @@
       cat: "Expertise",
       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg",
     },
+
+    {
+      name: "Database Design",
+      level: 88,
+      cat: "Expertise",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+    },
+    {
+      name: "Process Automation",
+      level: 82,
+      cat: "Expertise",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg",
+    },
   ];
 
   var softSkills = [
@@ -115,6 +128,31 @@
       tags: ["Slack", "Documentation", "Client Relations"],
       icon: '<svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
     },
+
+    {
+  title: "Database Management",
+  desc: "Conception, optimisation et administration de bases de données MySQL et PostgreSQL.",
+  tags: ["MySQL", "PostgreSQL", "Indexation", "Requêtes complexes"],
+  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+},
+{
+  title: "System Analysis & Design",
+  desc: "Analyse des besoins métier, modélisation UML et conception d'architectures systèmes robustes.",
+  tags: ["UML", "MCD/MLD", "Architecture", "Specs fonctionnelles"],
+  icon: '<svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+},
+{
+  title: "IT Support & Troubleshooting",
+  desc: "Diagnostic et résolution de problèmes techniques, support utilisateurs et maintenance applicative.",
+  tags: ["Debugging", "Support N1/N2", "Maintenance", "Logs"],
+  icon: '<svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
+},
+{
+  title: "Digital Tools Implementation",
+  desc: "Déploiement et intégration d'outils digitaux adaptés aux workflows d'entreprise.",
+  tags: ["Intégration", "Onboarding", "SaaS", "Automatisation"],
+  icon: '<svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
+},
   ];
 
   var projects = [
